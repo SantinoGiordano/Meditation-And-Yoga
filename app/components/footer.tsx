@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
@@ -6,48 +5,34 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <Head>
-        <meta
-          name="description"
-          content="this site is the landing page for 141 Main Street Grill and sandwiches."
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-      </Head>
-      <footer
-        style={{ fontFamily: "Playfair Display, serif" }}
-        className="bg-gray-300 text-black pt-10"
-      >
+      <footer className="bg-blue-100 text-black pt-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 px-6 pb-10 border-b border-slate-600">
-          <div className="flex-1 space-y-4 md:pr-8">
-            <h3 className="text-2xl font-semibold tracking-wide mb-2 border-b border-red-950 inline-block pb-1">
-              Visit Us
+          {/* Filler text section */}
+          <div className="flex-1 bg-white bg-opacity-50 rounded-lg p-6 shadow-md border-l-4 border-purple-400">
+            <h3 className="text-2xl font-bold mb-4 text-purple-800">
+              About Us
             </h3>
-            <p className="text-lg">
-              Call After 3PM <span className="font-bold">(413) 821-9881</span>
+            <p className="mb-4 text-sm leading-relaxed text-gray-700">
+              Meditation & Yoga is dedicated to helping you find balance, peace,
+              and well-being through mindful practices and community support.
             </p>
-            <p className="text-lg">
-              <Link
-                href="https://www.google.com/maps/dir//141+Main+St,+Agawam,+MA+01001"
-                className="text-red-400 hover:text-red-200 transition"
-                target="_blank"
+            <p className="mb-4 text-sm text-gray-700">
+              Contact us:{" "}
+              <a
+                href="mailto:info@meditationandyoga.com"
+                className="underline text-purple-700 hover:text-purple-900 transition"
               >
-                Click here
-              </Link>{" "}
-              for Driving Directions
+                info@meditationandyoga.com
+              </a>
             </p>
-            <p className="text-lg">
-              Free Parking / Outdoor Patio (Seasonal) / Private Room Available
+            <p className="text-sm text-gray-700">
+              141 Main St, Berkshire, MA 01230
             </p>
-            <p className="text-lg">141 Main Street, Agawam, MA 01001</p>
           </div>
 
+          {/* Newsletter form section */}
           <div className="flex-1">
-            <h3 className="text-2xl font-semibold tracking-wide mb-4 border-b border-red-600 inline-block pb-1">
+            <h3 className="text-2xl font-semibold tracking-wide mb-4 border-b border-purple-600 inline-block pb-1">
               Stay Updated
             </h3>
             <form className="flex flex-col gap-4 w-full max-w-md">
@@ -77,7 +62,7 @@ const Footer = () => {
               </div>
               <button
                 type="submit"
-                className="mt-2 bg-red-700 hover:bg-red-600 text-white font-semibold py-3 rounded transition"
+                className="mt-2 bg-blue-700 hover:bg-blue-600 text-white font-semibold py-3 rounded transition"
               >
                 Subscribe
               </button>
@@ -91,20 +76,20 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebook className="w-8 h-8 text-red-800 hover:text-red-600 transition" />
+            <FaFacebook className="w-8 h-8 text-blue-800 hover:text-blue-600 transition" />
           </a>
           <a
             href="https://www.instagram.com/141mainst/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaInstagram className="w-8 h-8 text-red-800 hover:text-red-600 transition" />
+            <FaInstagram className="w-8 h-8 text-blue-800 hover:text-blue-600 transition" />
           </a>
         </div>
         <div className="text-center py-6 text-sm text-black">
-          &copy; {new Date().getFullYear()} Main Street Grill. All rights
+          &copy; {new Date().getFullYear()} Meditation And Yoga. All rights
           reserved.
-          <div className="mt-1">141 Main Street, Agawam, MA 01001</div>
+          <div className="mt-1">&quot;Somewhere in Berkshire&quot;</div>
         </div>
       </footer>
     </>
