@@ -17,13 +17,7 @@ export default function Home() {
               Explore our collection of meditation and yoga practices designed to
               help you find balance, peace, and well-being
             </p>
-            <Image
-              src="/https://placehold.co/400"
-              alt="Meditation and Yoga"
-              width={300}
-              height={300}
-              className="rounded-lg shadow-lg mt-6"
-            />
+           
           </div>
           <div
             className="flex-1 bg-white rounded-xl p-8 flex flex-col
