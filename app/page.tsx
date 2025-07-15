@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Brain, StretchHorizontal, HeartPulse } from "lucide-react"; // Updated icons
+import { Brain, StretchHorizontal, HeartPulse } from "lucide-react";
 
 export default function Home() {
   return (
@@ -9,20 +9,17 @@ export default function Home() {
         bg-[url('/header.jpg')] bg-cover bg-center bg-no-repeat bg-fixed"
       ></div>
 
-      <div className="flex flex-col items-center justify-center text-center p-8 bg-gradient-to-r from-blue-400 to-purple-400 text-white ">
-        <div className="w-full flex flex-col md:flex-row gap-6 justify-center items-stretch px-4 py-12 ">
-          <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-bold mt-2">Meditation & Yoga</h1>
-            <p className="text-lg mt-4">
-              Explore our collection of meditation and yoga practices designed to
-              help you find balance, peace, and well-being
-            </p>
-           
-          </div>
-          <div
-            className="flex-1 bg-white rounded-xl p-8 flex flex-col
-      shadow-[0_0_24px_4px_rgba(59,130,246,0.7)]"
-          >
+      <div className="flex flex-col items-center justify-center text-center p-8 bg-gradient-to-r from-blue-400 to-purple-400 text-white">
+        {/* Title and intro text */}
+        <h1 className="text-4xl font-bold mt-2">Meditation & Yoga</h1>
+        <p className="text-lg mt-4 max-w-xl mx-auto">
+          Explore our collection of meditation and yoga practices designed to
+          help you find balance, peace, and well-being.
+        </p>
+
+        {/* 3 responsive boxes */}
+        <div className="w-full flex flex-col md:flex-row gap-6 justify-center items-stretch px-4 py-12">
+          <div className="flex-1 bg-white rounded-xl p-8 flex flex-col shadow-[0_0_24px_4px_rgba(59,130,246,0.7)] transition-transform duration-300 hover:scale-105">
             <div className="flex items-center gap-2 mb-2">
               <Brain className="text-blue-700" size={28} />
               <h3 className="text-left text-2xl font-bold text-blue-700">
@@ -35,10 +32,7 @@ export default function Home() {
               relaxation, and support overall mental health.
             </p>
           </div>
-          <div
-            className="flex-1 bg-white rounded-xl  p-8 flex flex-col
-      shadow-[0_0_24px_4px_rgba(168,85,247,0.7)]"
-          >
+          <div className="flex-1 bg-white rounded-xl p-8 flex flex-col shadow-[0_0_24px_4px_rgba(168,85,247,0.7)] transition-transform duration-300 hover:scale-105">
             <div className="flex items-center gap-2 mb-2">
               <StretchHorizontal className="text-purple-700" size={28} />
               <h3 className="text-left text-2xl font-bold text-purple-700">
@@ -47,14 +41,11 @@ export default function Home() {
             </div>
             <p className="text-gray-700 text-justify">
               Yoga combines movement and breath to increase flexibility, build
-              strength, and reduce tension. Practicing yoga regularly supports
-              physical health and encourages a balanced, peaceful mind.
+              strength, and reduce tension. Practicing regularly supports
+              physical health and mental clarity.
             </p>
           </div>
-          <div
-            className="flex-1 bg-white rounded-xl  p-8 flex flex-col
-      shadow-[0_0_24px_4px_rgba(34,197,94,0.7)]"
-          >
+          <div className="flex-1 bg-white rounded-xl p-8 flex flex-col shadow-[0_0_24px_4px_rgba(34,197,94,0.7)] transition-transform duration-300 hover:scale-105">
             <div className="flex items-center gap-2 mb-2">
               <HeartPulse className="text-green-700" size={28} />
               <h3 className="text-left text-2xl font-bold text-green-700">
