@@ -12,6 +12,16 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center text-center p-8 bg-gradient-to-r from-blue-400 to-purple-400 text-white">
         {/* Title and intro text */}
         <h1 className="text-4xl font-bold mt-2">Meditation & Yoga</h1>
+        <div className="w-[200px] h-[200px] rounded-full overflow-hidden mt-6 shadow-lg flex items-center justify-center">
+          <Image
+            draggable="false"
+            src="/yogaStretch.jpg"
+            alt="Meditation and Yoga"
+            width={200}
+            height={200}
+            className="object-cover w-full h-full"
+          />
+        </div>
         <p className="text-lg mt-4 max-w-xl mx-auto">
           Explore our collection of meditation and yoga practices designed to
           help you find balance, peace, and well-being.
