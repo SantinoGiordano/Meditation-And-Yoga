@@ -25,7 +25,7 @@ const Nav = () => {
         </Link>
       </div>
 
-      {/* Mobile Hamburger aligned right */}
+
       <div className="md:hidden ml-auto">
         <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-800 focus:outline-none">
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -34,20 +34,37 @@ const Nav = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-20 right-4 bg-white shadow-lg rounded-xl p-6 flex flex-col gap-4 w-[80%] max-w-xs z-50">
-          <Link href="/" onClick={() => setMenuOpen(false)} className="text-gray-800 hover:text-blue-600 transition-colors duration-300">
-            Home
-          </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)} className="text-gray-800 hover:text-blue-600 transition-colors duration-300">
-            About
-          </Link>
-          <Link href="/contact" onClick={() => setMenuOpen(false)} className="text-gray-800 hover:text-blue-600 transition-colors duration-300">
-            Contact
-          </Link>
-          <Link href="/products" onClick={() => setMenuOpen(false)} className="text-gray-800 hover:text-blue-600 transition-colors duration-300">
-            Products
-          </Link>
-        </div>
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/99 z-40"
+            onClick={() => setMenuOpen(false)}
+          />
+          {/* Top Menu */}
+          <div className=" text-center fixed top-0 left-0 right-0 z-50 flex justify-center">
+            <div className=" p-8 flex flex-col gap-6 w-[80%] max-w-xs mt-6 rounded-xl shadow-lg relative">
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="absolute top-4 right-4 text-white focus:outline-none"
+                aria-label="Close menu"
+              >
+                <X size={28} />
+              </button>
+              <Link href="/" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+                Home
+              </Link>
+              <Link href="/about" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+                About
+              </Link>
+              <Link href="/contact" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+                Contact
+              </Link>
+              <Link href="/products" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+                Products
+              </Link>
+            </div>
+          </div>
+        </>
       )}
     </nav>
   );
