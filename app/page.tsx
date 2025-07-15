@@ -5,12 +5,26 @@ export default function Home() {
   return (
     <>
       <div
-        className="w-full min-h-[500px] flex items-center justify-center 
+        className=" hidden md:block w-full min-h-[500px] items-center justify-center 
         bg-[url('/header.jpg')] bg-cover bg-center bg-no-repeat bg-fixed"
       ></div>
 
       <div className="flex flex-col items-center justify-center text-center p-8 bg-gradient-to-r from-blue-400 to-purple-400 text-white ">
         <div className="w-full flex flex-col md:flex-row gap-6 justify-center items-stretch px-4 py-12 ">
+          <div className="flex flex-col items-center">
+            <h1 className="text-4xl font-bold mt-2">Meditation & Yoga</h1>
+            <p className="text-lg mt-4">
+              Explore our collection of meditation and yoga practices designed to
+              help you find balance, peace, and well-being
+            </p>
+            <Image
+              src="/https://placehold.co/400"
+              alt="Meditation and Yoga"
+              width={300}
+              height={300}
+              className="rounded-lg shadow-lg mt-6"
+            />
+          </div>
           <div
             className="flex-1 bg-white rounded-xl p-8 flex flex-col
       shadow-[0_0_24px_4px_rgba(59,130,246,0.7)]"
