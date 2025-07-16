@@ -23,7 +23,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(convertToSubcurrency(amount)),
+      body: JSON.stringify({ amount: convertToSubcurrency(amount) }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
@@ -31,15 +31,12 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
 
   return (
     <>
-    <form>
-        {clientSecret && <PaymentElement/>}
-        <button>
-            Pay 
-        </button>
-    </form>
+      <form>
+        {clientSecret && <PaymentElement />}
+        <button>Pay</button>
+      </form>
     </>
-  )
+  );
 };
-
 
 export default CheckoutPage;
