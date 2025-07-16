@@ -17,18 +17,19 @@ export default function ItemArea() {
   const amount = 5.0;
   return (
     <>
-    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 flex flex-col items-center py-12">
-      Final Payment ${amount}
-    <Elements stripe={stripePromise}
-     options={{
-       mode: "payment",
-       amount: convertToSubcurrency(amount),
-       currency: "usd",
-      }}
-      >
-        <CheckoutPage amount={amount} />
-      </Elements>
-      </div>
-      </>
+      <main className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 flex flex-col items-center py-12">
+        Final Payment ${amount}
+        <Elements
+          stripe={stripePromise}
+          options={{
+            mode: "payment",
+            amount: convertToSubcurrency(amount),
+            currency: "usd",
+          }}
+        >
+          <CheckoutPage amount={amount} />
+        </Elements>
+      </main>
+    </>
   );
 }
