@@ -19,16 +19,16 @@ export default function ItemArea() {
     <>
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 flex flex-col items-center py-12">
       Final Payment ${amount}
-    </div>
     <Elements stripe={stripePromise}
      options={{
-      mode: "payment",
-      amount: convertToSubcurrency(amount),
-      currency: "usd",
-     }}
-    >
+       mode: "payment",
+       amount: convertToSubcurrency(amount),
+       currency: "usd",
+      }}
+      >
         <CheckoutPage amount={amount} />
       </Elements>
+      </div>
       </>
   );
 }
