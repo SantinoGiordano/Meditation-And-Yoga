@@ -29,10 +29,25 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       .then((data) => setClientSecret(data.clientSecret));
   }, [amount]);
 
+
+  const handleSubmit = async (event:React.FormEvent<HTMLFormElement> ) => {
+    event.preventDefault();
+    setIsLoading(true);
+    if (!stripe || !elements) {
+      return;
+    }
+    const {error: submitError} = await elements.submit()
+
+  }
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         {clientSecret && <PaymentElement />}
+
+        {errorMessage && (
+          <div className="text-red-500 mt-4">{errorMessage}</div>
+        )}
         <button>Pay</button>
       </form>
     </>
