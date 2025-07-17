@@ -46,7 +46,8 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: window.location.origin,
+        // return_url: window.location.origin,
+        return_url: `${window.location.origin}/payment-success`,
       },
     })
     
@@ -76,7 +77,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
         )}
         <button
           disabled={!stripe || isLoading}
-          className="bg-black text-white w-full p-5 mt-2 disabled:opacity-50 disabled:animate-pulse "
+          className="bg-black text-white w-full p-5 mt-2 disabled:opacity-50 disabled:animate-pulse hover:cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 rounded-lg shadow-md hover:bg-gray-800"
         >
           {!isLoading ? `Pay $${amount}` : "Processing..."}
         </button>
