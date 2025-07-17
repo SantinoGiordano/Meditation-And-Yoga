@@ -7,15 +7,15 @@ import { sampleData } from "@/data/data";
 const Cart = () => {
   const { inCart, toggleInCart } = useCartStore();
 
-  // Get all item IDs currently in cart (where value is true)
+
   const cartItemIds = Object.entries(inCart)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([_, isIn]) => isIn)
     .map(([id]) => id);
 
-  // Get full item info from sampleData by matching id (string -> number)
   const cartItems = cartItemIds
     .map((id) => sampleData.find((item) => item.id === Number(id)))
-    .filter((item): item is typeof sampleData[0] => !!item); // filter out undefined
+    .filter((item): item is typeof sampleData[0] => !!item); 
 
   if (cartItems.length === 0) {
     return (
