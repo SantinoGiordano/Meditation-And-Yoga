@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -11,23 +11,43 @@ const Nav = () => {
     <nav className="bg-white mx-auto mt-4 w-[90%] max-w-4xl px-6 py-3 flex items-center justify-between md:justify-center ">
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center p-4 ">
-        <Link href="/" className="text-gray-800  hover:text-blue-600 transition-colors duration-300">
+        <Link
+          href="/"
+          className="text-gray-800  hover:text-blue-600 transition-colors duration-300"
+        >
           Home
         </Link>
-        <Link href="/about" className="text-gray-800 hover:text-blue-600 transition-colors duration-300">
+        <Link
+          href="/about"
+          className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
+        >
           About
         </Link>
-        <Link href="/contact" className="text-gray-800 hover:text-blue-600 transition-colors duration-300">
+        <Link
+          href="/contact"
+          className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
+        >
           Contact
         </Link>
-        <Link href="/products" className="text-gray-800 hover:text-blue-600 transition-colors duration-300">
+        <Link
+          href="/products"
+          className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
+        >
           Products
+        </Link>
+        <Link
+          href="/ItemArea"
+          className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
+        >
+          Chcekout
         </Link>
       </div>
 
-
       <div className="md:hidden ml-auto">
-        <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-800 focus:outline-none">
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-gray-800 focus:outline-none"
+        >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -50,17 +70,39 @@ const Nav = () => {
               >
                 <X size={28} />
               </button>
-              <Link href="/" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+              <Link
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-blue-600 transition-colors duration-300"
+              >
                 Home
               </Link>
-              <Link href="/about" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+              <Link
+                href="/about"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-blue-600 transition-colors duration-300"
+              >
                 About
               </Link>
-              <Link href="/contact" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-blue-600 transition-colors duration-300"
+              >
                 Contact
               </Link>
-              <Link href="/products" onClick={() => setMenuOpen(false)} className="text-white hover:text-blue-600 transition-colors duration-300">
+              <Link
+                href="/products"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-blue-600 transition-colors duration-300"
+              >
                 Products
+              </Link>
+              <Link
+                href="/ItemArea"
+                className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
+              >
+                Chcekout
               </Link>
             </div>
           </div>
