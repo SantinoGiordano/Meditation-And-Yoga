@@ -72,14 +72,14 @@ const Footer = () => {
 
         <div className=" pt-5 flex gap-6 justify-center">
           <a
-            href="https://www.facebook.com/141main/"
+            href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaFacebook className="w-8 h-8 text-blue-800 hover:text-blue-600 transition" />
           </a>
           <a
-            href="https://www.instagram.com/141mainst/"
+            href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
           >

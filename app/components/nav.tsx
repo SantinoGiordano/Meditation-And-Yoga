@@ -100,7 +100,8 @@ const Nav = () => {
               </Link>
               <Link
                 href="/ItemArea"
-                className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
+                 onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-blue-600 transition-colors duration-300"
               >
                 Chcekout
               </Link>

@@ -7,7 +7,7 @@ const page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 flex flex-col items-center py-12">
+    <div className="min-h-screen bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex flex-col items-center py-12">
       <h1 className="text-3xl font-bold mb-10 text-gray-800">Our Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl px-4">
         {[1, 2, 3, 4].map((num) => (
@@ -15,7 +15,7 @@ const page = () => {
             key={num}
             className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border-t-4 border-blue-400"
           >
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mb-4 shadow-md">
+            <div className="w-20 h-20 bg-purple-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 rounded-full flex items-center justify-center mb-4 shadow-md">
               <span className="text-white text-2xl font-bold">P{num}</span>
             </div>
             <h2 className="text-xl font-semibold mb-2 text-blue-700">

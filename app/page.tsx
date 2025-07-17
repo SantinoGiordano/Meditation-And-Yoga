@@ -10,7 +10,7 @@ export default function Home() {
       >
       </div>
 
-      <div className="p-15 flex flex-col items-center justify-center text-center  bg-gradient-to-r from-blue-400 to-purple-400 text-white">
+      <div className="p-15 flex flex-col items-center justify-center text-center bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 text-white">
         {/* Title and intro text */}
         <h1 className="text-4xl font-bold mt-2">Meditation & Yoga</h1>
         <div className="w-[200px] h-[200px] rounded-full overflow-hidden mt-6 shadow-lg flex items-center justify-center">
