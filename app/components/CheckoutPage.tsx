@@ -29,26 +29,29 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       .then((data) => setClientSecret(data.clientSecret));
   }, [amount]);
 
-
-  const handleSubmit = async (event:React.FormEvent<HTMLFormElement> ) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
     if (!stripe || !elements) {
       return;
     }
-    const {error: submitError} = await elements.submit()
-
-  }
+    const { error: submitError } = await elements.submit();
+    if (submitError) {
+      setErrorMessage(submitError.message);
+      setIsLoading(false);
+      return;
+    }
+  };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
         {clientSecret && <PaymentElement />}
 
         {errorMessage && (
           <div className="text-red-500 mt-4">{errorMessage}</div>
         )}
-        <button>Pay</button>
+        <button className="bg-black text-white w-full p-5 mt-2 ">Pay</button>
       </form>
     </>
   );
