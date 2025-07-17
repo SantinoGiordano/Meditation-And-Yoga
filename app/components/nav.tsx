@@ -3,11 +3,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import CartModal from "./cartModel";
+import Cart from "./cart";
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return ( 
+  return (
     <nav className="bg-white mx-auto mt-4 w-[90%] max-w-4xl px-6 py-3 flex items-center justify-between md:justify-center ">
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center p-4 ">
@@ -40,6 +42,13 @@ const Nav = () => {
           className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
         >
           Chcekout
+        </Link>
+        <Link
+          href="/MobileCart"
+          onClick={() => setMenuOpen(false)}
+          className="text-black hover:text-blue-600 transition-colors duration-300"
+        >
+          🛒 Your Cart
         </Link>
       </div>
 
@@ -100,10 +109,17 @@ const Nav = () => {
               </Link>
               <Link
                 href="/ItemArea"
-                 onClick={() => setMenuOpen(false)}
+                onClick={() => setMenuOpen(false)}
                 className="text-white hover:text-blue-600 transition-colors duration-300"
               >
                 Chcekout
+              </Link>
+              <Link
+                href="/MobileCart"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-blue-600 transition-colors duration-300"
+              >
+                🛒 Your Cart
               </Link>
             </div>
           </div>
