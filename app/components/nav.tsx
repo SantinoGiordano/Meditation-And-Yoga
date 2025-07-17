@@ -61,7 +61,7 @@ const Nav = () => {
             onClick={() => setMenuOpen(false)}
           />
           {/* Top Menu */}
-          <div className="bg-white text-center fixed top-0 left-0 right-0 z-50 flex justify-center">
+          <div className=" text-center fixed top-0 left-0 right-0 z-50 flex justify-center">
             <div className=" p-8 flex flex-col gap-6 w-[80%] max-w-xs mt-6 rounded-xl shadow-lg relative">
               <button
                 onClick={() => setMenuOpen(false)}
