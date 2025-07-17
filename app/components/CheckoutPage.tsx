@@ -45,13 +45,21 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-md"
+      >
         {clientSecret && <PaymentElement />}
 
         {errorMessage && (
           <div className="text-red-500 mt-4">{errorMessage}</div>
         )}
-        <button className="bg-black text-white w-full p-5 mt-2 ">Pay</button>
+        <button
+          disabled={!stripe || isLoading}
+          className="bg-black text-white w-full p-5 mt-2 disabled:opacity-50 disabled:animate-pulse "
+        >
+          {!isLoading ? `Pay $${amount}` : "Processing..."}
+        </button>
       </form>
     </>
   );
