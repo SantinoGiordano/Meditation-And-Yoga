@@ -41,7 +41,27 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       setIsLoading(false);
       return;
     }
+    
+    const { error} = await stripe.confirmPayment({
+      elements,
+      clientSecret,
+      confirmParams: {
+        return_url: window.location.origin,
+      },
+    })
+    
+    if( error) {
+      setErrorMessage(error.message);
+      setIsLoading(false);
+    }
+
   };
+
+
+  if (!stripe || !clientSecret || !elements) {
+    return <span className="loading loading-spinner loading-lg"></span>
+  }
+
 
   return (
     <>
