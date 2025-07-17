@@ -7,7 +7,8 @@ export default function Home() {
       <div
         className=" hidden md:block w-full min-h-[500px] items-center justify-center 
         bg-[url('/header.jpg')] bg-cover bg-center bg-no-repeat bg-fixed"
-      ></div>
+      >
+      </div>
 
       <div className="p-15 flex flex-col items-center justify-center text-center  bg-gradient-to-r from-blue-400 to-purple-400 text-white">
         {/* Title and intro text */}
