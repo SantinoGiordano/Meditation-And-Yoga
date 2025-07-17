@@ -7,19 +7,19 @@ import { useCartStore } from "@/app/store/store";
 const Cart = () => {
   const { inCart, toggleInCart } = useCartStore();
 
-  // Get all item IDs currently in cart (where value is true)
   const cartItemIds = Object.entries(inCart)
     .filter(([_, isIn]) => isIn)
     .map(([id]) => id);
 
-  // Get full item info from sampleData by matching id (string -> number)
   const cartItems = cartItemIds
     .map((id) => sampleData.find((item) => item.id === Number(id)))
-    .filter((item): item is (typeof sampleData)[0] => !!item); // filter out undefined
+    .filter((item): item is (typeof sampleData)[0] => !!item);
 
   if (cartItems.length === 0) {
     return (
-      <div className="p-8 text-center text-gray-700">Your cart is empty.</div>
+      <div className=" bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex items-center justify-center min-h-screen p-8 text-center text-gray-700">
+        Your cart is empty.
+      </div>
     );
   }
 
