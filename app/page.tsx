@@ -56,7 +56,7 @@ export default function Home() {
               physical health and mental clarity.
             </p>
           </div>
-          <div className="flex-1 bg-white rounded-xl p-8 flex flex-col shadow-[0_0_24px_4px_rgba(34,197,94,0.7)] transition-transform duration-300 hover:scale-105">
+          <div className="flex-1 bg-white rounded-xl p-8 flex flex-col shadow-[0_0_24px_4px_rgba(34,200,94,0.7)] transition-transform duration-300 hover:scale-105">
             <div className="flex items-center gap-2 mb-2">
               <HeartPulse className="text-green-700" size={28} />
               <h3 className="text-left text-2xl font-bold text-green-700">
