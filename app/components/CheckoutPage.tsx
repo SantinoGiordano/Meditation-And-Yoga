@@ -6,7 +6,6 @@ import {
   useElements,
   PaymentElement,
 } from "@stripe/react-stripe-js";
-import { Check } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const CheckoutPage = ({ amount }: { amount: number }) => {

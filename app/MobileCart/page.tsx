@@ -8,6 +8,7 @@ const Cart = () => {
   const { inCart, toggleInCart } = useCartStore();
 
   const cartItemIds = Object.entries(inCart)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([_, isIn]) => isIn)
     .map(([id]) => id);
 

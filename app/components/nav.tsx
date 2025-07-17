@@ -3,8 +3,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import CartModal from "./cartModel";
-import Cart from "./cart";
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
