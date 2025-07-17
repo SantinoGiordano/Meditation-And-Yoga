@@ -1,6 +1,8 @@
-"use client";
-import React, { useRef, useState } from "react";
+'use client';
+
 import { sampleData } from "@/data/data";
+import { useRef, useState } from "react";
+import { useCartStore } from "../store/store";
 
 const Page = () => {
   return (
@@ -17,7 +19,6 @@ const Page = () => {
 
 export default Page;
 
-// Separate component for each audio card
 type Props = {
   id: number;
   title: string;
@@ -31,6 +32,8 @@ const AudioCard = ({ id, title, description, price, link }: Props) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const { inCart, toggleInCart } = useCartStore();
+
   const toggleAudio = () => {
     if (!audioRef.current) return;
 
@@ -39,6 +42,13 @@ const AudioCard = ({ id, title, description, price, link }: Props) => {
     } else {
       audioRef.current.play();
     }
+  };
+
+  const handleAddToCart = () => {
+    toggleInCart(id.toString()); // use string key
+    console.log(
+      `Item ${id} is ${inCart[id] ? "removed from" : "added to"} cart`
+    );
   };
 
   const handlePlay = () => setIsPlaying(true);
@@ -56,11 +66,11 @@ const AudioCard = ({ id, title, description, price, link }: Props) => {
 
       <button
         onClick={toggleAudio}
-        className="text-black px-4 py-2 rounded-full font-semibold transition mb-4"
+        className="bg-blue-400 shadow-md hover:shadow-lg text-black p-4 rounded-full transition"
       >
         {isPlaying ? "Pause" : "Play"}
       </button>
-{/* {`bg-${isPlaying ? 'red' : 'green'}-600 hover:bg-${isPlaying ? 'red' : 'green'}-700 */}
+
       <audio
         ref={audioRef}
         src={link}
@@ -68,6 +78,13 @@ const AudioCard = ({ id, title, description, price, link }: Props) => {
         onPause={handlePause}
         onEnded={handleEnded}
       />
+
+      <button
+        onClick={handleAddToCart}
+        className="bg-blue-400 text-black p-3 mt-4 rounded-lg hover:bg-blue-500 transition-colors duration-300 shadow-md hover:shadow-lg"
+      >
+        {inCart[id] ? "Remove from Cart" : "Add to Cart"}
+      </button>
     </div>
   );
 };
