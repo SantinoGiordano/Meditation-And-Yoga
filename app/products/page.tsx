@@ -1,6 +1,11 @@
+'use client'
 import React from "react";
-
 const page = () => {
+  const buttonPress = () => {
+    alert("This button has no current functionality. Its still being worked on");
+    // console.log("Button Pressed");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 flex flex-col items-center py-12">
       <h1 className="text-3xl font-bold mb-10 text-gray-800">Our Products</h1>
@@ -20,7 +25,10 @@ const page = () => {
               This is a description for product {num}. It’s designed to help you
               on your wellness journey.
             </p>
-            <button className="mt-auto bg-blue-600 hover:bg-purple-600 text-white px-6 py-2 rounded-full font-semibold transition">
+            <button
+              onClick={buttonPress}
+              className="mt-auto bg-blue-600 hover:bg-purple-600 text-white px-6 py-2 rounded-full font-semibold transition"
+            >
               Learn More
             </button>
           </div>
