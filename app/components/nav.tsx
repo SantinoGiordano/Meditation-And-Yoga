@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
+  return ( 
     <nav className="bg-white mx-auto mt-4 w-[90%] max-w-4xl px-6 py-3 flex items-center justify-between md:justify-center ">
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center p-4 ">
@@ -61,7 +61,7 @@ const Nav = () => {
             onClick={() => setMenuOpen(false)}
           />
           {/* Top Menu */}
-          <div className=" text-center fixed top-0 left-0 right-0 z-50 flex justify-center">
+          <div className="bg-white text-center fixed top-0 left-0 right-0 z-50 flex justify-center">
             <div className=" p-8 flex flex-col gap-6 w-[80%] max-w-xs mt-6 rounded-xl shadow-lg relative">
               <button
                 onClick={() => setMenuOpen(false)}
