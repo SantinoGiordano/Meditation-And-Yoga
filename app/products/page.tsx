@@ -1,6 +1,6 @@
-'use client';
-import React, { useRef, useState } from 'react';
-import { sampleData } from '@/data/data';
+"use client";
+import React, { useRef, useState } from "react";
+import { sampleData } from "@/data/data";
 
 const Page = () => {
   return (
@@ -56,11 +56,11 @@ const AudioCard = ({ id, title, description, price, link }: Props) => {
 
       <button
         onClick={toggleAudio}
-        className={`bg-${isPlaying ? 'red' : 'green'}-600 hover:bg-${isPlaying ? 'red' : 'green'}-700 text-black px-4 py-2 rounded-full font-semibold transition mb-4`}
+        className="text-black px-4 py-2 rounded-full font-semibold transition mb-4"
       >
-        {isPlaying ? 'Pause' : 'Play'}
+        {isPlaying ? "Pause" : "Play"}
       </button>
-
+{/* {`bg-${isPlaying ? 'red' : 'green'}-600 hover:bg-${isPlaying ? 'red' : 'green'}-700 */}
       <audio
         ref={audioRef}
         src={link}
