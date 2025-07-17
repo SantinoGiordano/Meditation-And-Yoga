@@ -9,7 +9,7 @@ const About = () => {
         bg-[url('/lotus.jpg')] bg-cover bg-center bg-no-repeat bg-fixed"
       ></div>
 
-      <div className="flex justify-center px-4 py-10 bg-gradient-to-r from-blue-400 to-purple-400">
+      <div className="flex justify-center px-4 py-10 bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400">
         <div className="max-w-4xl w-full bg-white rounded-2xl shadow-xl p-8">
           <h1 className="text-4xl font-bold text-center mb-8 ">About Us</h1>
           <div className="flex justify-center mb-8">

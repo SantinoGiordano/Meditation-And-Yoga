@@ -17,7 +17,7 @@ export default function ItemArea() {
   const amount = 5.0;
   return (
     <>
-      <main className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 flex flex-col items-center py-12">
+      <main className="min-h-screen bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex flex-col items-center py-12">
         <div className="flex-1 bg-white bg-opacity-50 rounded-lg p-6 shadow-md border-l-4 border-red-500 max-h-100 max-w-150 m-10">
           <h3 className="text-2xl font-bold mb-4 text-red-500">Hello, Please Read</h3>
           <p className=" mb-4 text-sm leading-relaxed text-gray-700">
