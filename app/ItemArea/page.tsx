@@ -19,13 +19,21 @@ export default function ItemArea() {
     <>
       <main className="min-h-screen bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex flex-col items-center py-12">
         <div className="flex-1 bg-white bg-opacity-50 rounded-lg p-6 shadow-md border-l-4 border-red-500 max-h-100 max-w-150 m-10">
-          <h3 className="text-2xl font-bold mb-4 text-red-500">Hello, Please Read</h3>
+          <h3 className="text-2xl font-bold mb-4 text-red-500">
+            Hello, Please Read
+          </h3>
           <p className=" mb-4 text-sm leading-relaxed text-gray-700">
-            if you have come to this part of the website just know that everything is in an unstable not finsihed state, nothing here is perminate nothing here works yet, everything is being worked on. the entire website is a work in progress, eveything site wide is subject ot change
+            if you have come to this part of the website just know that
+            everything is in an unstable not finsihed state, nothing here is
+            perminate nothing here works yet, everything is being worked on. the
+            entire website is a work in progress, eveything site wide is subject
+            ot change
           </p>
-          
         </div>
-        Final Payment ${amount}
+        <div className="text-2xl text-center text-green-700 bg-white shadow-md rounded-lg px-6 py-4 mb-6 max-w-xs mx-auto">
+          Final Payment: <span className="text-black">${amount}</span>
+        </div>
+
         <Elements
           stripe={stripePromise}
           options={{
