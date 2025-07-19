@@ -18,7 +18,6 @@ const Cart = () => {
     .map((id) => sampleData.find((item) => item.id === Number(id)))
     .filter((item): item is (typeof sampleData)[0] => !!item);
 
-  // Calculate and update total price in store whenever cart items change
   React.useEffect(() => {
     calculateTotalPrice(cartItems);
   }, [cartItems, calculateTotalPrice]);
