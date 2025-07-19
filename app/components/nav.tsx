@@ -36,17 +36,17 @@ const Nav = () => {
           Products
         </Link>
         <Link
-          href="/ItemArea"
-          className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
-        >
-          Chcekout
-        </Link>
-        <Link
           href="/MobileCart"
           onClick={() => setMenuOpen(false)}
           className="text-black hover:text-blue-600 transition-colors duration-300"
         >
           🛒 Your Cart
+        </Link>
+        <Link
+          href="/ItemArea"
+          className="text-gray-800 hover:text-blue-600 transition-colors duration-300"
+        >
+          Chcekout
         </Link>
       </div>
 
@@ -106,18 +106,18 @@ const Nav = () => {
                 Products
               </Link>
               <Link
-                href="/ItemArea"
-                onClick={() => setMenuOpen(false)}
-                className="text-white hover:text-blue-600 transition-colors duration-300"
-              >
-                Chcekout
-              </Link>
-              <Link
                 href="/MobileCart"
                 onClick={() => setMenuOpen(false)}
                 className="text-white hover:text-blue-600 transition-colors duration-300"
               >
                 🛒 Your Cart
+              </Link>
+              <Link
+                href="/ItemArea"
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-blue-600 transition-colors duration-300"
+              >
+                Chcekout
               </Link>
             </div>
           </div>
