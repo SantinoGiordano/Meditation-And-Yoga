@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import convertToSubcurrency from "@/lib/converSubcurrency";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutPage from "../components/CheckoutPage";
+import { useCartStore } from "../store/store";
+import { sampleData } from "@/data/data";
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
   throw new Error("Missing Stripe public key in environment variables");
@@ -14,37 +17,36 @@ const stripePromise = loadStripe(
 );
 
 export default function ItemArea() {
-  const amount = 5.0;
-  return (
-    <>
-      <main className="min-h-screen bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex flex-col items-center py-12">
-        <div className="flex-1 bg-white bg-opacity-50 rounded-lg p-6 shadow-md border-l-4 border-red-500 max-h-100 max-w-150 m-10">
-          <h3 className="text-2xl font-bold mb-4 text-red-500">
-            Hello, Please Read
-          </h3>
-          <p className=" mb-4 text-sm leading-relaxed text-gray-700">
-            if you have come to this part of the website just know that
-            everything is in an unstable not finsihed state, nothing here is
-            perminate nothing here works yet, everything is being worked on. the
-            entire website is a work in progress, eveything site wide is subject
-            ot change
-          </p>
-        </div>
-        <div className="text-2xl text-center text-green-700 bg-white shadow-md rounded-lg px-6 py-4 mb-6 max-w-xs mx-auto">
-          Final Payment: <span className="text-black">${amount}</span>
-        </div>
+  const totalPrice = useCartStore((state) => state.totalPrice);
+  const calculateTotalPrice = useCartStore((state) => state.calculateTotalPrice);
 
+  useEffect(() => {
+    calculateTotalPrice(sampleData);
+  }, []);
+
+  const isValidAmount = totalPrice > 0;
+
+  return (
+    <main className="min-h-screen bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex flex-col items-center py-12">
+
+      <div className="text-2xl text-center text-green-700 bg-white shadow-md rounded-lg px-6 py-4 mb-6 max-w-xs mx-auto">
+        Final Payment: <span className="text-black">${totalPrice}</span>
+      </div>
+
+      {isValidAmount ? (
         <Elements
           stripe={stripePromise}
           options={{
             mode: "payment",
-            amount: convertToSubcurrency(amount),
+            amount: convertToSubcurrency(totalPrice),
             currency: "usd",
           }}
         >
-          <CheckoutPage amount={amount} />
+          <CheckoutPage totalPrice={totalPrice} />
         </Elements>
-      </main>
-    </>
+      ) : (
+        <p className="text-white text-center mt-4">Add items to your cart to proceed with payment.</p>
+      )}
+    </main>
   );
 }
