@@ -5,5 +5,5 @@ export type DataItem = {
   description: string;
   file: string;
   price: number;
-
+  image: string; 
 };
