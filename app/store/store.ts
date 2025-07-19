@@ -1,6 +1,13 @@
-// store.ts
+
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+
+interface CartStoreState {
+  inCart: Record<string, boolean>;
+  totalPrice: number;
+  toggleInCart: (id: string) => void;
+  calculateTotalPrice: (items: { id: number; price: number }[]) => void;
+}
 
 interface CartStoreState {
   inCart: Record<string, boolean>;
