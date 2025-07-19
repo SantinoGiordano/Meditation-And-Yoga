@@ -8,6 +8,8 @@ import {
 } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 
+
+
 const CheckoutPage = ({ amount }: { amount: number }) => {
   const stripe = useStripe();
   const elements = useElements();
