@@ -8,9 +8,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 
-
-
-const CheckoutPage = ({ amount }: { amount: number }) => {
+const CheckoutPage = ({ totalPrice }: { totalPrice: number }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -24,11 +22,11 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: convertToSubcurrency(amount) }),
+      body: JSON.stringify({ amount: convertToSubcurrency(totalPrice) }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [amount]);
+  }, [totalPrice]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -80,7 +78,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
           disabled={!stripe || isLoading}
           className="bg-black text-white w-full p-5 mt-2 disabled:opacity-50 disabled:animate-pulse hover:cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 rounded-lg shadow-md hover:bg-gray-800"
         >
-          {!isLoading ? `Pay $${amount}` : "Processing..."}
+          {!isLoading ? `Pay $${totalPrice}` : "Processing..."}
         </button>
       </form>
     </>
