@@ -18,8 +18,8 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className=" bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex items-center justify-center min-h-screen p-8 text-center text-gray-700">
-        Your cart is empty.
+      <div className=" bg-white flex items-center justify-center min-h-screen p-8 text-center text-gray-700">
+        <div className="bg-red-500 text-2xl text-white p-5 rounded-lg shadow-lg">Your cart is empty.</div>
       </div>
     );
   }
