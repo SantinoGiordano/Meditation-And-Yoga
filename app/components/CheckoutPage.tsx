@@ -41,7 +41,7 @@ const CheckoutPage = ({ totalPrice }: { totalPrice: number }) => {
       return;
     }
     
-    const { error} = await stripe.confirmPayment({
+    const { error } = await stripe.confirmPayment({
       elements,
       clientSecret,
       confirmParams: {

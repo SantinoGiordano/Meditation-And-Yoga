@@ -27,26 +27,37 @@ export default function ItemArea() {
   const isValidAmount = totalPrice > 0;
 
   return (
-    <main className="min-h-screen bg-blue-400 md:bg-gradient-to-r md:from-blue-400 md:to-purple-400 flex flex-col items-center py-12">
+    <main className="min-h-screen bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 flex flex-col items-center justify-center py-16 px-4">
+      {/* Card Container */}
+      <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-w-xl w-full p-8 border border-white/40">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+          Checkout Summary
+        </h1>
 
-      <div className="text-2xl text-center text-green-700 bg-white shadow-md rounded-lg px-6 py-4 mb-6 max-w-xs mx-auto">
-        Final Payment: <span className="text-black">${totalPrice}</span>
+        {/* Final Payment Display */}
+        <div className="bg-white rounded-xl shadow-inner p-6 text-center mb-6 border border-gray-200">
+          <h2 className="text-lg font-medium text-gray-700 mb-2">Final Payment</h2>
+          <span className="text-4xl font-bold text-black">${totalPrice.toFixed(2)}</span>
+        </div>
+
+        {/* Stripe Payment */}
+        {isValidAmount ? (
+          <Elements
+            stripe={stripePromise}
+            options={{
+              mode: "payment",
+              amount: convertToSubcurrency(totalPrice),
+              currency: "usd",
+            }}
+          >
+            <CheckoutPage totalPrice={totalPrice} />
+          </Elements>
+        ) : (
+          <p className="text-center text-red-600 font-medium mt-4">
+            Add items to your cart to proceed with payment.
+          </p>
+        )}
       </div>
-
-      {isValidAmount ? (
-        <Elements
-          stripe={stripePromise}
-          options={{
-            mode: "payment",
-            amount: convertToSubcurrency(totalPrice),
-            currency: "usd",
-          }}
-        >
-          <CheckoutPage totalPrice={totalPrice} />
-        </Elements>
-      ) : (
-        <p className="text-white text-center mt-4">Add items to your cart to proceed with payment.</p>
-      )}
     </main>
   );
 }

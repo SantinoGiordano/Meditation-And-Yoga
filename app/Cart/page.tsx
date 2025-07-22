@@ -5,37 +5,40 @@ import { useCartStore } from "../store/store";
 import { sampleData } from "@/data/data";
 import Link from "next/link";
 import Image from "next/image";
+
 const Cart = () => {
   const { inCart, toggleInCart, totalPrice, calculateTotalPrice } =
     useCartStore();
 
-  // Get cart items
-  const cartItemIds = Object.entries(inCart)
-    .filter(([_, isIn]) => isIn)
-    .map(([id]) => id);
+  // Memoize cart item IDs to avoid unnecessary recalculations
+  const cartItemIds = React.useMemo(() => {
+    return Object.entries(inCart)
+      .filter(([_, isIn]) => isIn)
+      .map(([id]) => id);
+  }, [inCart]);
 
-  const cartItems = cartItemIds
-    .map((id) => sampleData.find((item) => item.id === Number(id)))
-    .filter((item): item is (typeof sampleData)[0] => !!item);
+  // Memoize actual cart items based on sampleData
+  const cartItems = React.useMemo(() => {
+    return cartItemIds
+      .map((id) => sampleData.find((item) => item.id === Number(id)))
+      .filter((item): item is (typeof sampleData)[0] => !!item);
+  }, [cartItemIds]);
 
+  // Recalculate totalPrice whenever cartItems change
   React.useEffect(() => {
     calculateTotalPrice(cartItems);
   }, [cartItems, calculateTotalPrice]);
 
+  // If no items in cart
   if (cartItems.length === 0) {
     return (
       <div className="p-8 text-center">
-        <div className="text-gray-700 mb-4">Your cart is empty.</div>
-        <Link
-          href="/"
-          className="text-blue-600 hover:text-blue-800 font-medium"
-        >
-          Continue Shopping
-        </Link>
+        <div className="text-gray-700 mb-4 min-h-screen">Your cart is empty.</div>
       </div>
     );
   }
 
+  // Render cart
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-8">Shopping Cart</h1>
@@ -48,21 +51,10 @@ const Cart = () => {
               <h2 className="text-lg font-medium text-gray-900">Items</h2>
             </div>
             <ul className="divide-y divide-gray-200">
-              {cartItems.map(({ id, title, price, image }) => (
+              {cartItems.map(({ id, title, price }) => (
                 <li key={id} className="p-6">
                   <div className="flex flex-col sm:flex-row gap-4">
-                    {/* Product Image */}
-                    <div className="flex-shrink-0">
-                      <Image
-                        width={80}
-                        height={80}
-                        src={image}
-                        alt={title}
-                        className="w-20 h-20 rounded-md object-cover"
-                      />
-                    </div>
 
-                    {/* Product Info */}
                     <div className="flex-1">
                       <div className="flex justify-between">
                         <h3 className="text-lg font-medium text-gray-900">
@@ -112,21 +104,13 @@ const Cart = () => {
 
             <div className="mt-6">
               <Link
-                href="/checkout"
+                href="/ItemArea"
                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-md font-medium flex items-center justify-center transition-colors"
               >
                 Proceed to Checkout
               </Link>
             </div>
 
-            <div className="mt-4 text-center">
-              <Link
-                href="/"
-                className="text-indigo-600 hover:text-indigo-500 font-medium"
-              >
-                Continue Shopping
-              </Link>
-            </div>
           </div>
         </div>
       </div>

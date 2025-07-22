@@ -36,7 +36,7 @@ const Nav = () => {
           Products
         </Link>
         <Link
-          href="/MobileCart"
+          href="/Cart"
           onClick={() => setMenuOpen(false)}
           className="text-black hover:text-blue-600 transition-colors duration-300"
         >
@@ -106,7 +106,7 @@ const Nav = () => {
                 Products
               </Link>
               <Link
-                href="/MobileCart"
+                href="/Cart"
                 onClick={() => setMenuOpen(false)}
                 className="text-white hover:text-blue-600 transition-colors duration-300"
               >
